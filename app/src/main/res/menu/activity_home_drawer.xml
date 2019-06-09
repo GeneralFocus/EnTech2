@@ -36,9 +36,3 @@
     </item>
 
 </menu>
-
-<string name="nav_payment">Make Payment</string>
-<string name="nav_notification">Notification</string>
-<string name="nav_limit">Set Limmit</string>
-<string name="nav_tips">View Tips </string>
-<string name="nav_about">About App</string>

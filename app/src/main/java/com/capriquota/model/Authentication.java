@@ -1,14 +1,15 @@
 package com.capriquota.model;
 
 
+import android.util.Log;
+
 import com.capriquota.Miscellenous.Utility;
 import com.capriquota.Miscellenous.doModel;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import android.util.*;
-import java.sql.*;
-import java.util.logging.Logger;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 /**
@@ -18,29 +19,28 @@ import java.util.logging.Logger;
 public class Authentication implements doModel{
 
 
-    private static final String driver      = DB_DRIVER;
+    private static final String driver      = doModel.DB_DRIVER;
     private static final String DB_USERNAME = Utility.getEnv("default_DBU");
     private static final String DB_PASSWORD = Utility.getEnv("default_DBP");
 
-    protected static Connection conn = null;
+    protected static Connection conn;
 
     public Authentication(){
-        super();
         this.connect();
     }
 
     private boolean connect() {
 
-        if(is_connected())
+        if(this.is_connected())
             return true;
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
             try{
-                this.conn = DriverManager.getConnection(driver,DB_USERNAME,DB_PASSWORD);
+                Authentication.conn = DriverManager.getConnection(Authentication.driver, Authentication.DB_USERNAME, Authentication.DB_PASSWORD);
 
-                if(is_connected())
+                if(this.is_connected())
                     return true;
 
             } catch (SQLException ex) {
@@ -57,20 +57,21 @@ public class Authentication implements doModel{
     @Override
     public void close() {
 
-        if(is_connected())
-            this.conn = null;
+        if(this.is_connected())
+            Authentication.conn = null;
     }
 
     @Override
     public boolean is_connected() {
-        if(this.conn != null)
-            return true;
+        return Authentication.conn != null;
 
-        return false;
     }
 
     @Override
-    public boolean registerUser() {
+    public boolean registerUser(ArrayList <> data) {
+
+        Log.d(Utility.LOGGER , "here");
+
         return false;
     }
 
