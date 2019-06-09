@@ -4,22 +4,25 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".splash.SplashActivity"></activity>
-        <activity android:name=".limit.LimitActivity" />
-        <activity android:name=".bills.BillActivity" />
-        <activity android:name=".home.HomeActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".signup.SignUpActivity"></activity>
+        <activity android:name=".signin.LoginActivity" />
+        <activity android:name=".slides.SlidesActivity" />
+        <activity android:name=".splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".limit.LimitActivity" />
+        <activity android:name=".bills.BillActivity" />
+        <activity android:name=".home.HomeActivity" />
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

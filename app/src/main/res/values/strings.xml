@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">EnTech</string>
+    <string name="image_description"> Image Description</string>
+    <!--Slides texts-->
+    <string name="slide_1_title">Preserve Energy</string>
+    <string name="slide_1_desc">Request for laboratory service from the comfort of your location</string>
+    <string name="slide_2_title">Pay Bills</string>
+    <string name="slide_2_desc">Check price list of various test per lab and rate such lab after sales services</string>
+    <string name="slide_3_title">Receive Notification</string>
+    <string name="slide_3_desc">Worry less about be</string>
+    <string name="next">Next</string>
+    <string name="skip">Skip</string>
+    <string name="start">START</string>
+    <string name="text_register">Register</string>
+    <string name="hint_email">Enter Email Address</string>
+    <string name="hint_name">Enter Full Name</string>
 </resources>
