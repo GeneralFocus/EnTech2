@@ -13,10 +13,10 @@
     <!-- dots active colors -->
     <color name="dot_light_screen1">#F79405</color>
     <color name="dot_light_screen2">#F79405</color>
-    <color name="dot_light_screen3">#22FF00</color>
-    <color name="dot_light_screen4">#22FF00</color>
-    <color name="dot_light_screen5">#22FF00</color>
-    <color name="dot_light_screen6">#22FF00</color>
+    <color name="dot_light_screen3">#F79405</color>
+    <color name="dot_light_screen4">#F79405</color>
+    <color name="dot_light_screen5">#F79405</color>
+    <color name="dot_light_screen6">#F79405</color>
 
     <array name="array_dot_active">
         <item>@color/dot_light_screen1</item>
