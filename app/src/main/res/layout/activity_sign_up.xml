@@ -7,14 +7,19 @@
     android:paddingBottom="20dp"
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
-    android:paddingTop="20dp"
     tools:context=".signup.SignUpActivity">
 
     <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_gravity="center">
+        android:paddingTop="70dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:src="@drawable/logo"
+            android:contentDescription="@string/image_description"/>
 
 
         <android.support.design.widget.TextInputLayout

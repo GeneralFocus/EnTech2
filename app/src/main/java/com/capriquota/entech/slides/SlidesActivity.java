@@ -33,6 +33,7 @@ public class SlidesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_slides);
         // Checking for first time launch - before calling setContentView()

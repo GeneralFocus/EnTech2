@@ -9,7 +9,11 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".signup.SignUpActivity"></activity>
+        <activity
+            android:name=".home.HomeActivity"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".signup.SignUpActivity" />
         <activity android:name=".signin.LoginActivity" />
         <activity android:name=".slides.SlidesActivity" />
         <activity android:name=".splash.SplashActivity">
@@ -21,7 +25,6 @@
         </activity>
         <activity android:name=".limit.LimitActivity" />
         <activity android:name=".bills.BillActivity" />
-        <activity android:name=".home.HomeActivity" />
         <activity android:name=".MainActivity" />
     </application>
 

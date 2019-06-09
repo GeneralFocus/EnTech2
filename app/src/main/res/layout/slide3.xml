@@ -35,7 +35,7 @@
         android:paddingRight="@dimen/desc_padding"
         android:text="@string/slide_3_desc"
         android:textAlignment="center"
-        android:textColor="#1e477b"
+        android:textColor="@color/faint"
         android:textSize="@dimen/slide_desc" />
 
 </LinearLayout>

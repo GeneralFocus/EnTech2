@@ -14,4 +14,15 @@
     <string name="text_register">Register</string>
     <string name="hint_email">Enter Email Address</string>
     <string name="hint_name">Enter Full Name</string>
+    <string name="caption">EnTech Developed By Team Energetics TechMoneyAfrica Hackathon 2019</string>
+    <string name="hint_password">Enter Password</string>
+    <string name="hint_confirm_password">Confirm Password</string>
+    <string name="text_login">Login</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
 </resources>
