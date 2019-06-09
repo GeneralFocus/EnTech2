@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/slide_1_title"
-            android:textColor="#22FF00"
+            android:textColor="@color/colorPrimary"
             android:textSize="@dimen/slide_title"
             android:textStyle="bold" />
 

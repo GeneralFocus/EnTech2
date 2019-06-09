@@ -3,11 +3,11 @@
     <string name="image_description"> Image Description</string>
     <!--Slides texts-->
     <string name="slide_1_title">Preserve Energy</string>
-    <string name="slide_1_desc">Request for laboratory service from the comfort of your location</string>
+    <string name="slide_1_desc">Set a timer and control your energy consumption right on your mobile device</string>
     <string name="slide_2_title">Pay Bills</string>
-    <string name="slide_2_desc">Check price list of various test per lab and rate such lab after sales services</string>
+    <string name="slide_2_desc">Paying bills has never been so easy and comfortable until now.</string>
     <string name="slide_3_title">Receive Notification</string>
-    <string name="slide_3_desc">Worry less about be</string>
+    <string name="slide_3_desc">Our System notifies you when power comes in to enable you track daily usage</string>
     <string name="next">Next</string>
     <string name="skip">Skip</string>
     <string name="start">START</string>
@@ -24,5 +24,15 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
+    <string name="action_setting">Settings</string>
+    <string name="nav_payment">Make Payment</string>
+    <string name="nav_notification">Notification</string>
+    <string name="nav_limit">Set Limmit</string>
+    <string name="nav_tips">View Tips </string>
+    <string name="nav_about">About App</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="action_settings">Settings</string>
+
 </resources>

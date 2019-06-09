@@ -5,21 +5,21 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/nav_payment"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:title="@string/nav_payment" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_limit"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:title="@string/nav_limit" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_tips"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:title="@string/nav_tips" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_notification"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:title="@string/nav_notification" />
     </group>
 
     <item android:title="Communicate">
@@ -36,3 +36,9 @@
     </item>
 
 </menu>
+
+<string name="nav_payment">Make Payment</string>
+<string name="nav_notification">Notification</string>
+<string name="nav_limit">Set Limmit</string>
+<string name="nav_tips">View Tips </string>
+<string name="nav_about">About App</string>
