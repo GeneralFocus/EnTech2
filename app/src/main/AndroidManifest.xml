@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.capriquota.entech">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -9,22 +10,50 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".request.RequestActivity"
+            android:parentActivityName=".home.HomeActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".home.HomeActivity" />
+        </activity>
         <activity
             android:name=".home.HomeActivity"
             android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".signup.SignUpActivity" />
-        <activity android:name=".signin.LoginActivity" />
-        <activity android:name=".slides.SlidesActivity" />
-        <activity android:name=".splash.SplashActivity">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".signup.SignUpActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".signin.LoginActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".slides.SlidesActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".splash.SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".limit.LimitActivity" />
-        <activity android:name=".bills.BillActivity" />
+
+        <activity android:name=".limit.LimitActivity"
+            android:parentActivityName=".home.HomeActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".home.HomeActivity" />
+        </activity>
+
+        <activity android:name=".bills.BillActivity"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".home.HomeActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:screenOrientation="portrait"
+            android:value=".home.HomeActivity" />
+        </activity>
+
         <activity android:name=".MainActivity" />
     </application>
 

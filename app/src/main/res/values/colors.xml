@@ -35,4 +35,6 @@
         <item>@color/dot_dark_screen5</item>
         <item>@color/dot_dark_screen6</item>
     </array>
+
+    <color name="light_gray">#bbb</color>
 </resources>

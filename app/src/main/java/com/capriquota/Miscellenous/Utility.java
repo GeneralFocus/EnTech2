@@ -114,7 +114,7 @@ public class Utility implements doUtility {
             BufferedReader in = new BufferedReader(new InputStreamReader(ipAdress.openStream()));
             return in.readLine();
 
-        } catch (Exception e) {
+        } catch (Exception ex) {
             Log.d(LOGGER , Log.getStackTraceString(ex));
         }
 

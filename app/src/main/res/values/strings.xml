@@ -40,6 +40,35 @@
     <string name="error_empty">One or more input fields are empty</string>
     <string name="error_invalid">Invalid user credentials</string>
     <string name="error_title">Error Occurred</string>
+
+    <string name="request">Request</string>
+    <string name="hint_description">Request Description</string>
+    <string name="nav_view_request">Meter Requests</string>
+
+    <string name="cardview_title1">Balance</string>
+    <string name="cardview_description1">#32,0000</string>
+    <string name="cardview_title2">Meter Request</string>
+    <string name="cardview_description2">Pending</string>
+    <string name="cardview_title3">Meter Number</string>
+    <string name="cardview_description3">10293AWE</string>
+    <string name="cardview_title4">Light Status</string>
+    <string name="cardview_description4">Off</string>
     <!---->
+
+    <string name="yes_account">Already have an account? Sign in</string>
+
+    <string name="text_accounts">All Accounts</string>
+    <string name="error_message_name">Enter Full Name</string>
+    <string name="error_message_email">Enter Valid Email</string>
+    <string name="error_message_age">Enter Age</string>
+    <string name="error_message_password">Enter Password</string>
+    <string name="success_message">Registration Successful</string>
+    <string name="text_not_member">No account yet? Create one</string>
+    <string name="text_already_member">Already a member? Login</string>
+    <string name="error_email_exists">Email Already Exists</string>
+    <string name="error_password_match">Password Does Not Matches</string>
+    <string name="error_valid_email_password">Wrong Email or Password</string>
+    <string name="text_hello">Hello,</string>
+    <string name="text_title">Android Tutorials Hub</string>
 
 </resources>
