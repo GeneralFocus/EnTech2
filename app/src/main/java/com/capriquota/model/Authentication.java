@@ -31,21 +31,21 @@ public class Authentication implements doModel{
     protected static Connection conn;
 
     public Authentication(){
-        this.connect();
+         connect();
     }
 
     private boolean connect() {
 
-        if(this.is_connected())
+        if( is_connected())
             return true;
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
             try{
-                Authentication.conn = DriverManager.getConnection(Authentication.driver, Authentication.DB_USERNAME, Authentication.DB_PASSWORD);
+                 conn = DriverManager.getConnection( driver,  DB_USERNAME,  DB_PASSWORD);
 
-                if(this.is_connected())
+                if( is_connected())
                     return true;
 
             } catch (SQLException ex) {
@@ -62,13 +62,13 @@ public class Authentication implements doModel{
     @Override
     public void close() {
 
-        if(this.is_connected())
-            Authentication.conn = null;
+        if( is_connected())
+             conn = null;
     }
 
     @Override
     public boolean is_connected() {
-        return Authentication.conn != null;
+        return  conn != null;
     }
 
 
@@ -81,7 +81,7 @@ public class Authentication implements doModel{
      */
     @Override
     public boolean registerUser(HashMap data) {
-        if(!this.is_connected())
+        if(! is_connected())
             return false;
         
         boolean user_exist = false;
@@ -90,13 +90,13 @@ public class Authentication implements doModel{
             // first check if user exists with same email address
             String query = "SELECT  Email from user";
 
-            PreparedStatement statement = Authentication.conn.prepareStatement(query);
+            PreparedStatement statement =  conn.prepareStatement(query);
             ResultSet result = statement.executeQuery();
 
             while (result.next()){
                 String getUsers = result.getString("Email").toString();
 
-                this.store.add(getUsers);
+                 store.add(getUsers);
 
 //                if(!store.contains() == )
             }
