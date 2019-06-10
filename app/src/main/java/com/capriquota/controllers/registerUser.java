@@ -2,8 +2,7 @@ package com.capriquota.controllers;
 
 import com.capriquota.model.Authentication;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 /**
  * Created by Ace Corps on 09/06/2019.
@@ -12,9 +11,9 @@ import java.util.List;
 public class registerUser extends Authentication{
 
 
-    private List<> store = new ArrayList<>();
+    private HashMap<Integer , String> store = new HashMap<Integer, String>();
 
-    public registerUser(ArrayList <> data){
+    public registerUser(HashMap data){
         this.store = data;
         new Authentication().registerUser(data);
     }

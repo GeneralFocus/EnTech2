@@ -1,41 +1,89 @@
 package com.capriquota.entech.signup;
 
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AlertDialog.Builder;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatEditText;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 
-import com.capriquota.entech.R;
+import com.capriquota.controllers.registerUser;
+import com.capriquota.entech.R.id;
+import com.capriquota.entech.R.layout;
+import com.capriquota.entech.R.string;
+
+import java.util.HashMap;
 
 public class SignUpActivity extends AppCompatActivity {
 
 
+    /**
+     *
+     * Define our required variables
+     */
     Button registerBtn;
+    AppCompatEditText fullName , email , password , confirmPassword;
+    HashMap <Integer , String> store = new HashMap<Integer, String>();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        getSupportActionBar().hide();
+        this.getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+        this.setContentView(layout.activity_sign_up);
 
-        initRegistration();
+        this.initRegistration();
     }
 
-    public void initRegistration(){
-        registerBtn = (Button)findViewById(R.id.registerBtn);
 
-        registerBtn.setOnClickListener(new View.OnClickListener() {
+    /**
+     *  @method initRegistration: starts all the registration process and process to dashboard on
+     *  successful registration
+     */
+    public void initRegistration(){
+
+
+        this.registerBtn = this.findViewById(id.registerBtn);
+        this.fullName = this.findViewById(id.textName);
+        this.email = this.findViewById(id.textEmail);
+        this.password = this.findViewById(id.textPassword);
+        this.confirmPassword = this.findViewById(id.textConfirmPassword);
+
+        this.registerBtn.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View view) {
 
-                AlertDialog.Builder alert = new AlertDialog.Builder(SignUpActivity.this);
-                alert.setTitle("App");
-                alert.setMessage("Testing button");
+                String Name = SignUpActivity.this.fullName.getText().toString();
+                String Email = SignUpActivity.this.email.getText().toString();
+                String Password = SignUpActivity.this.password.getText().toString();
+                String ConfirmPassword = SignUpActivity.this.confirmPassword.getText().toString();
 
-                AlertDialog alertDialog = alert.create();
-                alertDialog.show();
+                if(Name != ""
+                        || Email != ""
+                        || Password != ""
+                        || ConfirmPassword !=""){
+
+
+                    SignUpActivity.this.store.put(1 , Name);
+                    SignUpActivity.this.store.put(2, Email);
+                    SignUpActivity.this.store.put(3, Password);
+                    SignUpActivity.this.store.put(4, ConfirmPassword);
+
+                    new registerUser(SignUpActivity.this.store);
+                }
+                else{
+                    Builder alertBuilder = new Builder(SignUpActivity.this);
+                    alertBuilder.setTitle(string.error_title);
+                    alertBuilder.setMessage(string.error_empty);
+
+
+                    AlertDialog alert = alertBuilder.create();
+                    alert.show();
+                }
             }
         });
     }

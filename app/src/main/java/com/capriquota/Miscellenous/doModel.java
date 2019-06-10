@@ -1,5 +1,7 @@
 package com.capriquota.Miscellenous;
 
+import java.util.HashMap;
+
 /**
  * Created by Ace Corps on 09/06/2019.
  */
@@ -15,7 +17,7 @@ public interface doModel {
      */
     boolean is_connected();
 
-    boolean registerUser();
+    boolean registerUser(HashMap data);
     boolean loginUser();
 
 

@@ -5,13 +5,17 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_payment"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/nav_payment" />
+            android:id="@+id/nav_request"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/nav_request" />
         <item
             android:id="@+id/nav_limit"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/nav_limit" />
+        <item
+            android:id="@+id/nav_payment"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/nav_payment" />
         <item
             android:id="@+id/nav_tips"
             android:icon="@drawable/ic_menu_slideshow"
@@ -20,6 +24,7 @@
             android:id="@+id/nav_notification"
             android:icon="@drawable/ic_menu_manage"
             android:title="@string/nav_notification" />
+
     </group>
 
     <item android:title="Communicate">
@@ -36,3 +41,4 @@
     </item>
 
 </menu>
+

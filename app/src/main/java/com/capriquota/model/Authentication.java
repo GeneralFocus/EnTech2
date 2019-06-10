@@ -8,8 +8,12 @@ import com.capriquota.Miscellenous.doModel;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 
 /**
@@ -22,6 +26,7 @@ public class Authentication implements doModel{
     private static final String driver      = doModel.DB_DRIVER;
     private static final String DB_USERNAME = Utility.getEnv("default_DBU");
     private static final String DB_PASSWORD = Utility.getEnv("default_DBP");
+    private final List<String> store = new ArrayList<>();
 
     protected static Connection conn;
 
@@ -44,11 +49,11 @@ public class Authentication implements doModel{
                     return true;
 
             } catch (SQLException ex) {
-                Log.d(Utility.LOGGER , ex.getStackTrace().toString());
+                Log.d(Utility.LOGGER , Log.getStackTraceString(ex));
             }
 
         } catch (ClassNotFoundException ex) {
-            Log.d(Utility.LOGGER , ex.getStackTrace().toString());
+            Log.d(Utility.LOGGER , Log.getStackTraceString(ex));
         }
 
         return false;
@@ -64,13 +69,47 @@ public class Authentication implements doModel{
     @Override
     public boolean is_connected() {
         return Authentication.conn != null;
-
     }
 
-    @Override
-    public boolean registerUser(ArrayList <> data) {
 
-        Log.d(Utility.LOGGER , "here");
+    /***
+     *
+     * @method registerUser : registers user on database
+     * @param data
+     * @return false if registeration is unsuccessful
+     *
+     */
+    @Override
+    public boolean registerUser(HashMap data) {
+        if(!this.is_connected())
+            return false;
+        
+        boolean user_exist = false;
+        
+        try{
+            // first check if user exists with same email address
+            String query = "SELECT  Email from user";
+
+            PreparedStatement statement = Authentication.conn.prepareStatement(query);
+            ResultSet result = statement.executeQuery();
+
+            while (result.next()){
+                String getUsers = result.getString("Email").toString();
+
+                this.store.add(getUsers);
+
+//                if(!store.contains() == )
+            }
+
+        }catch (Exception e){
+
+        }
+
+
+        for (int i:
+             data.keySet()) {
+
+        }
 
         return false;
     }

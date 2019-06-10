@@ -4,6 +4,8 @@ package com.capriquota.Miscellenous;
  * Created by Ace Corps on 09/06/2019.
  */
 
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.math.BigInteger;
@@ -13,12 +15,9 @@ import java.net.UnknownHostException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
-
-import android.util.*;
 
 
 public class Utility implements doUtility {
@@ -28,12 +27,8 @@ public class Utility implements doUtility {
 
 
     public boolean checkInternet(){
-        String ip = getRealIpAddr();
-        if((ip == null) || (ip.equals(LOCALHOST))){
-            return false;
-        }else{
-            return true;
-        }
+        String ip = this.getRealIpAddr();
+        return !((ip == null) || (ip.equals(doUtility.LOCALHOST)));
     }
 
 
@@ -42,15 +37,15 @@ public class Utility implements doUtility {
     @params(String value)
     */
 
-    public static String getEnv(String value){return (String) System.getenv(value);}
+    public static String getEnv(String value){return System.getenv(value);}
 
     //Hashing my passwords not yet used to database
     private static boolean validatePassword(String originalPass, String storedPass) throws NoSuchAlgorithmException, InvalidKeySpecException{
 
         String[] parts = storedPass.split(":");
         int iterations = Integer.parseInt(parts[0]);
-        byte[] salt = fromHex(parts[1]);
-        byte[] hash = fromHex(parts[2]);
+        byte[] salt = Utility.fromHex(parts[1]);
+        byte[] hash = Utility.fromHex(parts[2]);
 
         PBEKeySpec spec = new PBEKeySpec(originalPass.toCharArray(),salt,iterations,hash.length*8);
         SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
@@ -64,7 +59,7 @@ public class Utility implements doUtility {
     }
 
 
-    private static byte[] fromHex(String hex ) throws NoSuchAlgorithmException,  InvalidKeySpecException{
+    private static byte[] fromHex(String hex ) {
         byte[] bytes = new byte[hex.length()/2];
         for(int i =0; i < bytes.length; i++){
             bytes[i] = (byte)Integer.parseInt(hex.substring(2*i,2*i+2),16);
@@ -76,13 +71,13 @@ public class Utility implements doUtility {
     private static String HashPass(String password) throws NoSuchAlgorithmException, InvalidKeySpecException{
         int iteration = 1000;
         char[] chars= password.toCharArray();
-        byte[] salt = getSalt();
+        byte[] salt = Utility.getSalt();
 
         PBEKeySpec  spec = new PBEKeySpec(chars,salt,iteration,64*8);
         SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
         byte[] hash = skf.generateSecret(spec).getEncoded();
 
-        return iteration +":" +toHex(salt) + ":" + toHex(hash);
+        return iteration +":" + Utility.toHex(salt) + ":" + Utility.toHex(hash);
     }
 
     private static byte[] getSalt() throws  NoSuchAlgorithmException{
@@ -92,7 +87,7 @@ public class Utility implements doUtility {
         return salt;
     }
 
-    private static String toHex(byte[] array) throws NoSuchAlgorithmException{
+    private static String toHex(byte[] array) {
         BigInteger bi = new BigInteger(1,array);
         String hex = bi.toString(16);
         int paddingLength = (array.length *2) - hex.length();
@@ -108,19 +103,19 @@ public class Utility implements doUtility {
         try {
             return InetAddress.getLocalHost().getHostAddress();
         } catch (UnknownHostException ex) {
-            Log.d(Utility.LOGGER , ex.getStackTrace().toString());
+            Log.d(LOGGER , Log.getStackTraceString(ex));
         }
         return null;
     }
 
     public String getRealIpAddr(){
         try {
-            URL ipAdress = new URL(IPCHECKURL);
+            URL ipAdress = new URL(doUtility.IPCHECKURL);
             BufferedReader in = new BufferedReader(new InputStreamReader(ipAdress.openStream()));
             return in.readLine();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.d(LOGGER , Log.getStackTraceString(ex));
         }
 
         return null;
