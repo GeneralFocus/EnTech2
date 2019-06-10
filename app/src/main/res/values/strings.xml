@@ -27,8 +27,9 @@
     <string name="action_setting">Settings</string>
     <string name="nav_payment">Make Payment</string>
     <string name="nav_notification">Notification</string>
-    <string name="nav_limit">Set Limmit</string>
+    <string name="nav_limit">Set Usage Limit</string>
     <string name="nav_tips">View Tips </string>
+    <string name="nav_request">Request Meter</string>
     <string name="nav_about">About App</string>
 
     <!-- TODO: Remove or change this placeholder text -->

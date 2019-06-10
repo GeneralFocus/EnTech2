@@ -8,7 +8,7 @@ import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 
 import com.capriquota.entech.R;
-import com.capriquota.entech.home.DashActivity;
+import com.capriquota.entech.home.HomeActivity;
 import com.capriquota.entech.signup.SignUpActivity;
 
 public class LoginActivity extends AppCompatActivity {
@@ -24,7 +24,7 @@ public class LoginActivity extends AppCompatActivity {
         appCompatButtonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(LoginActivity.this, DashActivity.class);
+                Intent i = new Intent(LoginActivity.this, HomeActivity.class);
                 startActivity(i);
                 finish();
             }
