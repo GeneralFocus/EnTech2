@@ -1,0 +1,164 @@
+package com.capriquota.entech.signup;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+
+import android.app.ProgressDialog;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.capriquota.entech.R;
+import com.capriquota.entech.util.AppConfig;
+import com.capriquota.entech.signin.LoginActivity;
+import java.util.HashMap;
+import java.util.Map;
+
+
+
+public class SignUpActivity extends AppCompatActivity {
+    boolean CheckEditText;
+    private Button btnRegister;
+    private TextView btnLinkToLogin;
+    private EditText inputFullName, inputEmail,inputPassword,inputRPassword;
+    RequestQueue requestQueue;
+    ProgressDialog progressDialog;
+    String name,email,password,rpassword;
+    String HttpUrl = AppConfig.URL_REGISTER;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        getSupportActionBar().hide();
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_sign_up);
+
+        requestQueue = Volley.newRequestQueue(SignUpActivity.this);
+        progressDialog = new ProgressDialog(SignUpActivity.this);
+
+        inputFullName =findViewById(R.id.textInputEditTextName);
+        inputEmail = findViewById(R.id.textInputEditTextEmail);
+        inputPassword = findViewById(R.id.textInputEditTextPassword);
+        inputRPassword = findViewById(R.id.textInputEditTextConfirmPassword);
+        btnRegister = findViewById(R.id.appCompatButtonRegister);
+        btnLinkToLogin = findViewById(R.id.appCompatTextViewLoginLink);
+
+        // Register Button Click event
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                CheckEditTextIsEmptyOrNot();
+                if (CheckEditText) {
+                    progressDialog.setMessage("Please Wait, We are Inserting Your Data To Our Server");
+                    progressDialog.show();
+                    realRegisterCode();
+                }
+                else
+                {
+                    Toast.makeText(SignUpActivity.this, "Please fill all form fields.", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        // Link to Login Screen
+        btnLinkToLogin.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(),
+                        LoginActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
+    }
+
+    //Check If EditText Is Empty Or Not
+    public void CheckEditTextIsEmptyOrNot() {
+        name = inputFullName.getText().toString().trim();
+        email = inputEmail.getText().toString().trim();
+        password = inputPassword.getText().toString().trim();
+        rpassword = inputRPassword.getText().toString().trim();
+        if (email.equals("")) {
+            inputEmail.setError("Invalid email address");
+            inputEmail.requestFocus();
+            CheckEditText = false;
+        } else if (name.equals("")){
+            inputFullName.setError("Please enter your fullname");
+            inputFullName.requestFocus();
+            CheckEditText = false;
+        } else if(password.equals("")){
+            inputPassword.setError("Please enter a password");
+            inputPassword.requestFocus();
+            CheckEditText = false;
+        } else if(rpassword.equals("")){
+            inputRPassword.setError("Please re-enter password");
+            inputRPassword.requestFocus();
+            CheckEditText = false;
+        } else if(!password.equals(rpassword)){
+            inputRPassword.setError("Password Doesn't match");
+            inputRPassword.requestFocus();
+            CheckEditText = false;
+        } else {
+            CheckEditText = true;
+        }
+    }
+
+    /**
+     * Function to store user in MySQL database will post params(tag, name,
+     * email, password) to register url
+     * */
+    public void realRegisterCode(){
+        // Creating string request with post method.
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, HttpUrl,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String ServerResponse) {
+                        progressDialog.dismiss();
+                        // Showing response message coming from server.
+                        if (ServerResponse == "success"){
+                            Toast.makeText(SignUpActivity.this, ServerResponse, Toast.LENGTH_LONG).show();
+                            Intent myIntent = new Intent(SignUpActivity.this,
+                                    LoginActivity.class);
+                            overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
+                            startActivity(myIntent);
+                            finish();
+                        }
+                        else
+                        {
+                            Toast.makeText(SignUpActivity.this, ServerResponse, Toast.LENGTH_LONG).show();
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        progressDialog.dismiss();
+                        Toast.makeText(SignUpActivity.this, "Check Your Internet Connection", Toast.LENGTH_LONG).show();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() {
+                // Creating Map String Params.
+                Map<String, String> params = new HashMap<String, String>();
+                // Adding All values to Params.
+                params.put("name", name);
+                params.put("email", email);
+                params.put("password", password);
+                return params;
+            }
+        };
+        // Creating RequestQueue.
+        RequestQueue requestQueue = Volley.newRequestQueue(SignUpActivity.this);
+        // Adding the StringRequest object into requestQueue.
+        requestQueue.add(stringRequest);
+    }
+}

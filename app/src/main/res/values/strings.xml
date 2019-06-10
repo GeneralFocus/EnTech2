@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EnTech</string>
+    <string name="app_name">EnTec</string>
     <string name="image_description"> Image Description</string>
     <!--Slides texts-->
     <string name="slide_1_title">Preserve Energy</string>
@@ -70,5 +70,10 @@
     <string name="error_valid_email_password">Wrong Email or Password</string>
     <string name="text_hello">Hello,</string>
     <string name="text_title">Android Tutorials Hub</string>
+
+    <string name="start_date">Start Date</string>
+    <string name="end_date">End Date</string>
+    <string name="watt_spend">Watt Al</string>
+    <string name="set_limit">Set Limit</string>
 
 </resources>

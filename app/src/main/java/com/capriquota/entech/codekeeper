@@ -5,12 +5,21 @@ import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.widget.NestedScrollView;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AlertDialog.Builder;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+
+import com.capriquota.controllers.registerUser;
 import com.capriquota.entech.R;
+import com.capriquota.entech.R.id;
 import com.capriquota.entech.R.layout;
+import com.capriquota.entech.R.string;
 import com.capriquota.entech.sqllite_level.DatabaseHelper;
 import com.capriquota.entech.sqllite_level.InputValidation;
 import com.capriquota.entech.sqllite_level.User;
@@ -160,3 +169,15 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
 
 }
+
+/////////////
+/////////////
+/////////////
+/////////////
+/////////////
+/////////////
+/////////////
+/////////////
+/////////////
+
+

@@ -19,8 +19,8 @@
         </activity>
         <activity
             android:name=".home.HomeActivity"
-            android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar"
+            android:label="Dashboard"
             android:screenOrientation="portrait"/>
         <activity android:name=".signup.SignUpActivity"
             android:screenOrientation="portrait"/>
